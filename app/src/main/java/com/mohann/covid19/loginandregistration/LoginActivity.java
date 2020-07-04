@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ActivityLoginBinding binding;
+    private ActivityLoginBinding loginBinding;
     private ConstraintLayout clLogin;
     private TextView tvRegister;
 
@@ -33,9 +33,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LoginViewModel loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
-        binding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
-        binding.setLifecycleOwner(this);
-        binding.setLoginViewModel(loginViewModel);
+        loginBinding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
+        loginBinding.setLifecycleOwner(this);
+        loginBinding.setLoginViewModel(loginViewModel);
         clLogin = findViewById(R.id.clLogin);
         tvRegister = findViewById(R.id.tvRegister);
         viewModelObserver(loginViewModel);
@@ -47,17 +47,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginViewModel.getUser().observe(this, loginUser -> {
             hideKeyboard(this);
             if (TextUtils.isEmpty(Objects.requireNonNull(loginUser).getStrEmailAddress())) {
-                binding.txtEmailAddress.setError(getString(R.string.email_id_is_required));
-                binding.txtEmailAddress.requestFocus();
+                loginBinding.txtEmailAddress.setError(getString(R.string.email_id_is_required));
+                loginBinding.txtEmailAddress.requestFocus();
             } else if (!loginUser.isEmailValid()) {
-                binding.txtEmailAddress.setError(getString(R.string.invalid_email_id));
-                binding.txtEmailAddress.requestFocus();
+                loginBinding.txtEmailAddress.setError(getString(R.string.invalid_email_id));
+                loginBinding.txtEmailAddress.requestFocus();
             } else if (TextUtils.isEmpty(Objects.requireNonNull(loginUser).getStrPassword())) {
-                binding.txtPassword.setError(getString(R.string.password_is_required));
-                binding.txtPassword.requestFocus();
+                loginBinding.txtPassword.setError(getString(R.string.password_is_required));
+                loginBinding.txtPassword.requestFocus();
             } else if (!loginUser.isPasswordLengthGreaterThan8()) {
-                binding.txtPassword.setError(getString(R.string.password_should_minimum_eight_chars));
-                binding.txtPassword.requestFocus();
+                loginBinding.txtPassword.setError(getString(R.string.password_should_minimum_eight_chars));
+                loginBinding.txtPassword.requestFocus();
             } else {
                 clLogin.clearFocus();
                 try {
