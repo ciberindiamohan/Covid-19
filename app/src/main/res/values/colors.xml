@@ -5,4 +5,14 @@
     <color name="colorAccent">#003883</color>
     <color name="white">#FFFFFF</color>
     <color name="orange">#EE7D11</color>
+
+    <color name="confirmed">#ff073a</color>
+    <color name="active">#007bff</color>
+    <color name="recovered">#28a745</color>
+    <color name="deceased">#6c757d</color>
+    <color name="grey">#6c757d</color>
+
+    <color name="grey_background">#EAECED</color>
+
+
 </resources>

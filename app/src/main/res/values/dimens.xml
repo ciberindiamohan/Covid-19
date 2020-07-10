@@ -75,6 +75,9 @@
     <dimen name="hso_32sp">24sp</dimen>
     <dimen name="hso_42sp">42sp</dimen>
     <dimen name="hso_48sp">48sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 
 
 </resources>
