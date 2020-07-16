@@ -26,8 +26,6 @@
     <string name="user_not_registered">User is not registered. Kindly register to proceed</string>
     <string name="user_already_registered">User is already registered. Kindly login to proceed.</string>
     <string name="something_went_wrong">Something went wrong</string>
-
-    <string name="coming_soon">Coming Soon!</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="title_home">India</string>
     <string name="title_dashboard">WHO</string>
@@ -42,5 +40,20 @@
     <string name="rcvrd">Rcvrd</string>
     <string name="dcsd">Dcsd</string>
     <string name="india">India</string>
+    <string name="check_internet_connectivity">Check your internet connectivity</string>
+    <string name="title_activity_district">DistrictActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="district">District</string>
+    <string name="who_int"><u>https://covid19.who.int/</u></string>
+    <string name="who_rss"><u>https://www.who.int/feeds/entity/</u></string>
+    <string name="link_1">Link 1</string>
+    <string name="link_2">Link 2</string>
 
 </resources>

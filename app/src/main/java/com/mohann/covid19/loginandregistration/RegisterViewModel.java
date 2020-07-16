@@ -8,8 +8,14 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.mohann.covid19.model.RegisterUser;
-import com.mohann.covid19.room.CovidRepository;
+import com.mohann.covid19.room.CovidDatabase;
 import com.mohann.covid19.room.model.RegisterUserModel;
+
+import java.util.List;
+
+import io.reactivex.Completable;
+import io.reactivex.Flowable;
+import io.reactivex.Maybe;
 
 public class RegisterViewModel extends AndroidViewModel {
 
@@ -21,12 +27,11 @@ public class RegisterViewModel extends AndroidViewModel {
     public MutableLiveData<String> phoneNo = new MutableLiveData<>();
 
     private MutableLiveData<RegisterUser> userMutableLiveData;
-
-    private CovidRepository covidRepository;
+    private CovidDatabase covidDatabase;
 
     public RegisterViewModel(@NonNull Application application) {
         super(application);
-        covidRepository = new CovidRepository(application);
+        covidDatabase = CovidDatabase.getInstance(application);
     }
 
     MutableLiveData<RegisterUser> getRegisterUser() {
@@ -43,12 +48,20 @@ public class RegisterViewModel extends AndroidViewModel {
         userMutableLiveData.setValue(registerUser);
     }
 
-    Boolean registerUser(RegisterUserModel registerUserModel) {
-        return covidRepository.registerUser(registerUserModel);
+//    Boolean registerUser(RegisterUserModel registerUserModel) {
+//        return covidRepository.registerUser(registerUserModel);
+//    }
+//
+//    RegisterUserModel getSpecifiedUser(String emailID) {
+//        return covidRepository.getSpecifiedUser(emailID);
+//    }
+
+    Completable registerUser(RegisterUserModel registerUserModel) {
+        return covidDatabase.covidDao().registerUser(registerUserModel);
     }
 
-    RegisterUserModel getSpecifiedUser(String emailID) {
-        return covidRepository.getSpecifiedUser(emailID);
+    Maybe<List<RegisterUserModel>> getSpecifiedUser(String emailID) {
+        return covidDatabase.covidDao().getSpecifiedUser(emailID);
     }
 
 }

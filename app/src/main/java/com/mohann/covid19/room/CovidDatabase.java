@@ -7,10 +7,14 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.mohann.covid19.room.model.CasesTimeSeriesModel;
+import com.mohann.covid19.room.model.DistrictWiseModel;
 import com.mohann.covid19.room.model.RegisterUserModel;
+import com.mohann.covid19.room.model.StateWiseModel;
+import com.mohann.covid19.room.model.TestedModel;
 import com.mohann.covid19.utils.Constants;
 
-@Database(entities = {RegisterUserModel.class}, version = 2, exportSchema = false)
+@Database(entities = {DistrictWiseModel.class,RegisterUserModel.class, CasesTimeSeriesModel.class, StateWiseModel.class, TestedModel.class}, version = 4, exportSchema = false)
 public abstract class CovidDatabase extends RoomDatabase {
 
     public static CovidDatabase INSTANCE;

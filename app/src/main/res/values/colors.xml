@@ -13,6 +13,7 @@
     <color name="grey">#6c757d</color>
 
     <color name="grey_background">#EAECED</color>
+    <color name="standard_link">#0000EE</color>
 
 
 </resources>

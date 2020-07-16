@@ -17,17 +17,20 @@ import androidx.lifecycle.ViewModelProvider;
 import com.mohann.covid19.R;
 import com.mohann.covid19.bottomnavigation.DashboardActivity;
 import com.mohann.covid19.databinding.ActivityLoginBinding;
-import com.mohann.covid19.room.model.RegisterUserModel;
 import com.mohann.covid19.utils.AESCrypt;
 import com.mohann.covid19.utils.Constants;
 
 import java.util.Objects;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityLoginBinding binding;
     private ConstraintLayout clLogin;
-    private TextView tvRegister;
+    private final CompositeDisposable mDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         binding.setLifecycleOwner(this);
         binding.setLoginViewModel(loginViewModel);
         clLogin = findViewById(R.id.clLogin);
-        tvRegister = findViewById(R.id.tvRegister);
+        TextView tvRegister = findViewById(R.id.tvRegister);
         viewModelObserver(loginViewModel);
         tvRegister.setOnClickListener(this);
 
@@ -61,24 +64,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             } else {
                 clLogin.clearFocus();
                 try {
-                    RegisterUserModel registerUserModel = loginViewModel.getSpecifiedUser(loginUser.getStrEmailAddress());
-                    if (registerUserModel != null) {
-                        if (loginUser.getStrEmailAddress().equals(registerUserModel.getEmailID()) && loginUser.getStrPassword().equals(AESCrypt.decrypt(registerUserModel.getPassword()))) {
-                            Toast.makeText(this, R.string.login_success, Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Toast.makeText(this, R.string.email_id_password_wrong, Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(this, R.string.user_not_registered, Toast.LENGTH_SHORT).show();
-                    }
+                    mDisposable.add(loginViewModel.getSpecifiedUser(loginUser.getStrEmailAddress())
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(registerUserModel -> {
+                                        if (registerUserModel.size() != 0) {
+                                            if (loginUser.getStrEmailAddress().equals(registerUserModel.get(0).getEmailID()) && loginUser.getStrPassword().equals(AESCrypt.decrypt(registerUserModel.get(0).getPassword()))) {
+                                                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                                                startActivity(intent);
+                                                finish();
+                                            } else {
+                                                Toast.makeText(this, R.string.email_id_password_wrong, Toast.LENGTH_SHORT).show();
+                                            }
+                                        } else {
+                                            Toast.makeText(this, R.string.user_not_registered, Toast.LENGTH_SHORT).show();
+                                        }
+                                    },
+                                    throwable -> {
+                                        Toast.makeText(this, R.string.something_went_wrong, Toast.LENGTH_SHORT).show();
+                                    }));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-
         });
     }
 
