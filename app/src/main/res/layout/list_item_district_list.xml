@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mDistrictWise"
+            type="com.mohann.covid19.room.model.DistrictWiseModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clStateWise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/hso_2dp"
+        android:layout_marginBottom="@dimen/hso_2dp"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clLIstData"
+            android:background="@color/grey_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvDummyOne"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="@dimen/hso_0dp"
+                android:background="@color/white"
+                android:padding="@dimen/hso_4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvState"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.005" />
+
+            <TextView
+                android:id="@+id/tvState"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="start|top"
+                android:padding="@dimen/hso_4dp"
+                android:text="@={mDistrictWise.districtName}"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/hso_13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvDummyTwo"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/tvDummyOne"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.29" />
+
+            <TextView
+                android:id="@+id/tvDummyTwo"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="@dimen/hso_0dp"
+                android:background="@color/white"
+                android:padding="@dimen/hso_4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvConfirmed"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/tvState"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.005" />
+
+            <TextView
+                android:id="@+id/tvConfirmed"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="end|top"
+                android:padding="@dimen/hso_4dp"
+                android:textDecimal="@{mDistrictWise.confirmed}"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/hso_13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvDummyThree"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tvDummyTwo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.17" />
+
+            <TextView
+                android:id="@+id/tvDummyThree"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="@dimen/hso_0dp"
+                android:background="@color/white"
+                android:padding="@dimen/hso_4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvActive"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/tvConfirmed"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.005" />
+
+            <TextView
+                android:id="@+id/tvActive"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="end|top"
+                android:padding="@dimen/hso_4dp"
+                android:textDecimal="@{mDistrictWise.active}"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/hso_13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvDummyFour"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tvDummyThree"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.17" />
+
+            <TextView
+                android:id="@+id/tvDummyFour"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="@dimen/hso_0dp"
+                android:background="@color/white"
+                android:padding="@dimen/hso_4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvRecovered"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/tvActive"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.005" />
+
+            <TextView
+                android:id="@+id/tvRecovered"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="end|top"
+                android:padding="@dimen/hso_4dp"
+                android:textDecimal="@{mDistrictWise.recovered}"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/hso_13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvDummyFive"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tvDummyFour"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.17" />
+
+            <TextView
+                android:id="@+id/tvDummyFive"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="@dimen/hso_0dp"
+                android:background="@color/white"
+                android:padding="@dimen/hso_4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvDeceased"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/tvRecovered"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.005" />
+
+            <TextView
+                android:id="@+id/tvDeceased"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="end|top"
+                android:padding="@dimen/hso_4dp"
+                android:textDecimal="@{mDistrictWise.deceased}"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/hso_13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvDummySix"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tvDummyFive"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.17" />
+
+            <TextView
+                android:id="@+id/tvDummySix"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="@dimen/hso_0dp"
+                android:background="@color/white"
+                android:padding="@dimen/hso_4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/tvDeceased"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.005" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

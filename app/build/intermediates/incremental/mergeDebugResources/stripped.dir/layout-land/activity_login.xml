@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                        
+
+    
+
+                 
+                                 
+                                                                            
+           
+
+    <ScrollView
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:tag="layout-land/activity_login_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:focusableInTouchMode="true">
+
+            <ImageView
+                android:id="@+id/lblTitle"
+                android:layout_width="@dimen/hso_120dp"
+                android:layout_height="@dimen/hso_120dp"
+                android:src="@mipmap/ic_launcher_round"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="@+id/guideLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.15"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.85"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/txtEmailAddress"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/hso_32dp"
+                android:layout_marginEnd="@dimen/hso_32dp"
+                android:background="@drawable/rectangle_white"
+                android:backgroundTint="@null"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hint="@string/e_mail_address"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:lines="1"
+                android:maxLength="72"
+                android:maxLines="1"
+                android:paddingStart="@dimen/hso_24dp"
+                android:paddingTop="@dimen/hso_18dp"
+                android:paddingEnd="@dimen/hso_24dp"
+                android:paddingBottom="@dimen/hso_18dp"
+                android:singleLine="true"
+                android:tag="binding_1"                
+                app:layout_constraintEnd_toEndOf="@id/guideLineTwo"
+                app:layout_constraintStart_toStartOf="@id/guideLineOne"
+                app:layout_constraintTop_toTopOf="@id/guideLine" />
+
+            <EditText
+                android:id="@+id/txtPassword"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/hso_32dp"
+                android:layout_marginTop="@dimen/hso_16dp"
+                android:layout_marginEnd="@dimen/hso_32dp"
+                android:background="@drawable/rectangle_white"
+                android:backgroundTint="@null"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hint="@string/password"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:paddingStart="@dimen/hso_24dp"
+                android:paddingTop="@dimen/hso_18dp"
+                android:paddingEnd="@dimen/hso_24dp"
+                android:paddingBottom="@dimen/hso_18dp"
+                android:singleLine="true"
+                android:tag="binding_2"                   
+                app:layout_constraintEnd_toEndOf="@id/guideLineTwo"
+                app:layout_constraintStart_toStartOf="@id/guideLineOne"
+                app:layout_constraintTop_toBottomOf="@+id/txtEmailAddress" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="@dimen/hso_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/hso_32dp"
+                android:layout_marginTop="@dimen/hso_32dp"
+                android:layout_marginEnd="@dimen/hso_32dp"
+                android:background="@drawable/rectangle_orange"
+                android:fontFamily="sans-serif-medium"
+                android:tag="binding_3"                              
+                android:paddingStart="@dimen/hso_24dp"
+                android:paddingTop="@dimen/hso_18dp"
+                android:paddingEnd="@dimen/hso_24dp"
+                android:paddingBottom="@dimen/hso_18dp"
+                android:text="@string/login"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/hso_22sp"
+                app:layout_constraintEnd_toEndOf="@id/guideLineTwo"
+                app:layout_constraintStart_toStartOf="@id/guideLineOne"
+                app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/hso_32dp"
+                android:layout_marginBottom="@dimen/hso_32dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="@string/don_t_have_an_account"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/hso_18sp" />
+
+                <TextView
+                    android:id="@+id/tvRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:text="@string/register"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/hso_18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+         

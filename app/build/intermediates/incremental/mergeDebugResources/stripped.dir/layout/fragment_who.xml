@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                   
+
+    
+
+                 
+                                
+                                                                             
+
+           
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".bottomnavigation.ui.who.WhoFragment" android:tag="layout/fragment_who_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <TextView
+            android:id="@+id/textWhoIntHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hso_16dp"
+            android:layout_marginTop="@dimen/hso_40dp"
+            android:layout_marginEnd="@dimen/hso_16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/link_1"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/hso_20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textWhoInt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:textColor="@color/standard_link"
+            android:id="@+id/textWhoInt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hso_16dp"
+            android:layout_marginTop="@dimen/hso_16dp"
+            android:layout_marginEnd="@dimen/hso_16dp"
+            android:fontFamily="sans-serif-light"
+            android:tag="binding_1"                          
+            android:text="@string/who_int"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/hso_16sp"
+            app:layout_constraintBottom_toTopOf="@+id/textWhoRssHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textWhoIntHeader" />
+
+        <TextView
+            android:id="@+id/textWhoRssHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hso_16dp"
+            android:layout_marginTop="@dimen/hso_16dp"
+            android:layout_marginEnd="@dimen/hso_16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/link_2"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/hso_20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textWhoRss"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textWhoInt" />
+
+        <TextView
+            android:textColor="@color/standard_link"
+            android:id="@+id/textWhoRss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hso_16dp"
+            android:layout_marginTop="@dimen/hso_16dp"
+            android:layout_marginEnd="@dimen/hso_16dp"
+            android:fontFamily="sans-serif-light"
+            android:tag="binding_2"                          
+            android:text="@string/who_rss"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/hso_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textWhoRssHeader" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+         
