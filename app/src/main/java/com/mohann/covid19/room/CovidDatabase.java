@@ -14,7 +14,7 @@ import com.mohann.covid19.room.model.StateWiseModel;
 import com.mohann.covid19.room.model.TestedModel;
 import com.mohann.covid19.utils.Constants;
 
-@Database(entities = {DistrictWiseModel.class,RegisterUserModel.class, CasesTimeSeriesModel.class, StateWiseModel.class, TestedModel.class}, version = 4, exportSchema = false)
+@Database(entities = {DistrictWiseModel.class, RegisterUserModel.class, CasesTimeSeriesModel.class, StateWiseModel.class, TestedModel.class}, version = 5, exportSchema = false)
 public abstract class CovidDatabase extends RoomDatabase {
 
     public static CovidDatabase INSTANCE;

@@ -15,9 +15,11 @@ public class BR {
 
   public static final int mHomeDataModel = 6;
 
-  public static final int mStateListAdapter = 7;
+  public static final int mLoginActivity = 7;
 
-  public static final int mStateWise = 8;
+  public static final int mRegistrationActivity = 8;
 
-  public static final int mWhoViewModel = 9;
+  public static final int mStateListAdapter = 9;
+
+  public static final int mStateWise = 10;
 }

@@ -44,6 +44,7 @@ public class DistrictActivity extends AppCompatActivity {
                 }.getType()), this);
                 activityDistrictBinding.setMDistrictListAdapter(districtWiseAdapter);
                 activityDistrictBinding.executePendingBindings();
+                rvDistrict.smoothScrollToPosition(0);
             }
         }
 

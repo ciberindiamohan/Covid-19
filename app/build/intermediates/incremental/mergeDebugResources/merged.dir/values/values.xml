@@ -37,6 +37,8 @@
     <attr format="reference" name="content"/>
     <attr format="reference" name="coordinatorLayoutStyle"/>
     <attr format="reference" name="drawerArrowStyle"/>
+    <attr format="reference" name="drawerLayoutStyle"/>
+    <attr format="dimension" name="elevation"/>
     <attr format="color" name="elevationOverlayColor"/>
     <attr format="boolean" name="elevationOverlayEnabled"/>
     <attr name="emptyVisibility">
@@ -219,8 +221,11 @@
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
     <color name="active">#007bff</color>
+    <color name="androidx_core_ripple_material_light">#1f000000</color>
+    <color name="androidx_core_secondary_text_default_material_light">#8a000000</color>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
+    <color name="background_grey">#DEDEDE</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
@@ -238,6 +243,14 @@
     <color name="colorAccent">#003883</color>
     <color name="colorPrimary">#003883</color>
     <color name="colorPrimaryDark">#003883</color>
+    <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
+    <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
+    <color name="common_google_signin_btn_text_dark_focused">@android:color/black</color>
+    <color name="common_google_signin_btn_text_dark_pressed">@android:color/white</color>
+    <color name="common_google_signin_btn_text_light_default">#90000000</color>
+    <color name="common_google_signin_btn_text_light_disabled">#1F000000</color>
+    <color name="common_google_signin_btn_text_light_focused">#90000000</color>
+    <color name="common_google_signin_btn_text_light_pressed">#DE000000</color>
     <color name="confirmed">#ff073a</color>
     <color name="deceased">#6c757d</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
@@ -426,6 +439,7 @@
     <dimen name="compat_control_corner_material">2dp</dimen>
     <dimen name="compat_notification_large_icon_max_height">320dp</dimen>
     <dimen name="compat_notification_large_icon_max_width">320dp</dimen>
+    <dimen name="def_drawer_elevation">10dp</dimen>
     <dimen name="default_dimension">100dp</dimen>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width">168dp</dimen>
@@ -487,6 +501,7 @@
     <item format="float" name="hint_pressed_alpha_material_dark" type="dimen">0.70</item>
     <item format="float" name="hint_pressed_alpha_material_light" type="dimen">0.54</item>
     <dimen name="hso_0dp">0dp</dimen>
+    <dimen name="hso_100dp">100dp</dimen>
     <dimen name="hso_10dp">10dp</dimen>
     <dimen name="hso_10sp">10sp</dimen>
     <dimen name="hso_11dp">11dp</dimen>
@@ -498,6 +513,7 @@
     <dimen name="hso_13sp">13sp</dimen>
     <dimen name="hso_14dp">14dp</dimen>
     <dimen name="hso_14sp">14sp</dimen>
+    <dimen name="hso_150dp">150dp</dimen>
     <dimen name="hso_15dp">15dp</dimen>
     <dimen name="hso_15sp">15sp</dimen>
     <dimen name="hso_16dp">16dp</dimen>
@@ -509,6 +525,7 @@
     <dimen name="hso_19dp">19dp</dimen>
     <dimen name="hso_19sp">19sp</dimen>
     <dimen name="hso_1dp">1dp</dimen>
+    <dimen name="hso_200dp">200dp</dimen>
     <dimen name="hso_20dp">20dp</dimen>
     <dimen name="hso_20sp">20sp</dimen>
     <dimen name="hso_21dp">21dp</dimen>
@@ -519,6 +536,7 @@
     <dimen name="hso_23sp">23sp</dimen>
     <dimen name="hso_24dp">24dp</dimen>
     <dimen name="hso_24sp">24sp</dimen>
+    <dimen name="hso_250dp">250dp</dimen>
     <dimen name="hso_25dp">25dp</dimen>
     <dimen name="hso_25sp">25sp</dimen>
     <dimen name="hso_26dp">26dp</dimen>
@@ -551,6 +569,7 @@
     <dimen name="hso_4dp">4dp</dimen>
     <dimen name="hso_5dp">5dp</dimen>
     <dimen name="hso_5sp">5sp</dimen>
+    <dimen name="hso_64dp">64dp</dimen>
     <dimen name="hso_6dp">6dp</dimen>
     <dimen name="hso_6sp">6sp</dimen>
     <dimen name="hso_7dp">7dp</dimen>
@@ -834,6 +853,7 @@
     <integer name="config_tooltipAnimTime">150</integer>
     <integer name="design_snackbar_text_max_lines">2</integer>
     <integer name="design_tab_indicator_anim_duration_ms">300</integer>
+    <integer name="google_play_services_version">12451000</integer>
     <integer name="hide_password_duration">320</integer>
     <integer name="mtrl_badge_max_character_count">4</integer>
     <integer name="mtrl_btn_anim_delay_ms">100</integer>
@@ -890,6 +910,24 @@
     <string name="chip_text">Chip text</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
     <string name="cnfrmd">Cnfrmd</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Install</string>
+    <string name="common_google_play_services_install_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are missing from your device.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play services availability</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
+    <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. Please try again.</string>
+    <string name="common_google_play_services_unsupported_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are not supported by your device.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update Google Play services.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are currently updating.</string>
+    <string name="common_google_play_services_wear_update_text">New version of Google Play services needed. It will update itself shortly.</string>
+    <string name="common_open_on_phone">Open on phone</string>
+    <string name="common_signin_button_text">Sign in</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="confirm_your_password">Please confirm your password</string>
     <string name="confirmed">Confirmed</string>
@@ -907,6 +945,8 @@
     <string name="first_fragment_label">First Fragment</string>
     <string name="first_name">First Name</string>
     <string name="first_name_is_required">First Name is required</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAgM6GwX2YreolqSfyZib1vEuAHcJRAFuA
+    </string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
@@ -916,8 +956,6 @@
     <string name="invalid_mobile_number">Invalid Mobile Number</string>
     <string name="last_name">Last Name</string>
     <string name="last_name_is_required">Last Name is required</string>
-    <string name="link_1">Link 1</string>
-    <string name="link_2">Link 2</string>
     <string name="login">Login</string>
     <string name="login_success">Login Successfully</string>
     <string name="mobile_number">Mobile Number</string>
@@ -970,6 +1008,7 @@
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="previous">Previous</string>
+    <string name="profile">Profile</string>
     <string name="rcvrd">Rcvrd</string>
     <string name="recovered">Recovered</string>
     <string name="register">Register</string>
@@ -981,13 +1020,11 @@
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="title_activity_district">DistrictActivity</string>
-    <string name="title_dashboard">WHO</string>
-    <string name="title_home">India</string>
-    <string name="title_notifications">Resources</string>
+    <string name="title_india">India</string>
+    <string name="title_resources">Resources</string>
+    <string name="title_who">WHO</string>
     <string name="user_already_registered">User is already registered. Kindly login to proceed.</string>
     <string name="user_not_registered">User is not registered. Kindly register to proceed</string>
-    <string name="who_int"><u>https://covid19.who.int/</u></string>
-    <string name="who_rss"><u>https://www.who.int/feeds/entity/</u></string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -2858,6 +2895,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowLayoutInDisplayCutoutMode" ns2:targetApi="o_mr1">never</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
     </style>
     <style name="EmptyTheme"/>
     <style name="MaterialAlertDialog.MaterialComponents" parent="AlertDialog.AppCompat">
@@ -2908,6 +2946,13 @@
     <item name="android:layout_gravity">center</item>
     <item name="android:textAlignment" ns2:ignore="NewApi">center</item>
   </style>
+    <style name="OverflowMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <!-- Required for pre-Lollipop. -->
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownVerticalOffset">-4.0dip</item>
+        <!-- Required for Lollipop. -->
+        <item name="android:overlapAnchor">false</item>
+    </style>
     <style name="Platform.AppCompat" parent="android:Theme.Holo">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
@@ -5607,6 +5652,12 @@
     <attr format="reference" name="checkedChip"/>
 
   </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr format="dimension" name="civ_border_width"/>
+        <attr format="color" name="civ_border_color"/>
+        <attr format="boolean" name="civ_border_overlay"/>
+        <attr format="color" name="civ_circle_background_color"/>
+    </declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout">
     <!--  Specifies extra space on the start, top, end and bottom
           sides of the the expanded title text. Margin values should be positive. -->
@@ -5872,6 +5923,10 @@
         <!-- The thickness (stroke size) for the bar paint -->
         <attr format="dimension" name="thickness"/>
     </declare-styleable>
+    <declare-styleable name="DrawerLayout">
+        <!-- The height difference between the drawer and the base surface. Only takes effect on API 21 and above -->
+        <attr name="elevation"/>
+    </declare-styleable>
     <declare-styleable name="ExtendedFloatingActionButton">
     <!-- Elevation for the ExtendedFloatingActionButton. -->
     <attr name="elevation"/>
@@ -6129,6 +6184,78 @@
         <!-- Amount of pixels by which the drop down should be offset horizontally. -->
         <attr name="android:dropDownHorizontalOffset"/>
     </declare-styleable>
+    <declare-styleable name="LoadingImageView"><attr name="imageAspectRatioAdjust">
+<enum name="none" value="0"/>
+
+<enum name="adjust_width" value="1"/>
+
+<enum name="adjust_height" value="2"/>
+
+</attr>
+
+<attr format="float" name="imageAspectRatio"/>
+
+<attr format="boolean" name="circleCrop"/>
+</declare-styleable>
+    <declare-styleable name="MapAttrs"><attr name="mapType">
+<enum name="none" value="0"/>
+
+<enum name="normal" value="1"/>
+
+<enum name="satellite" value="2"/>
+
+<enum name="terrain" value="3"/>
+
+<enum name="hybrid" value="4"/>
+
+</attr>
+
+<attr format="float" name="cameraBearing"/>
+
+<attr format="float" name="cameraTargetLat"/>
+
+<attr format="float" name="cameraTargetLng"/>
+
+<attr format="float" name="cameraTilt"/>
+
+<attr format="float" name="cameraZoom"/>
+
+<attr format="boolean" name="liteMode"/>
+
+<attr format="boolean" name="uiCompass"/>
+
+<attr format="boolean" name="uiRotateGestures"/>
+
+<attr format="boolean" name="uiScrollGestures"/>
+
+<attr format="boolean" name="uiScrollGesturesDuringRotateOrZoom"/>
+
+<attr format="boolean" name="uiTiltGestures"/>
+
+<attr format="boolean" name="uiZoomControls"/>
+
+<attr format="boolean" name="uiZoomGestures"/>
+
+<attr format="boolean" name="useViewLifecycle"/>
+
+<attr format="boolean" name="zOrderOnTop"/>
+
+<attr format="boolean" name="uiMapToolbar"/>
+
+<attr format="boolean" name="ambientEnabled"/>
+
+<attr format="float" name="cameraMinZoomPreference"/>
+
+<attr format="float" name="cameraMaxZoomPreference"/>
+
+<attr format="float" name="latLngBoundsSouthWestLatitude"/>
+
+<attr format="float" name="latLngBoundsSouthWestLongitude"/>
+
+<attr format="float" name="latLngBoundsNorthEastLatitude"/>
+
+<attr format="float" name="latLngBoundsNorthEastLongitude"/>
+</declare-styleable>
     <declare-styleable name="MaterialAlertDialog">
     <attr format="dimension" name="backgroundInsetStart"/>
     <attr format="dimension" name="backgroundInsetTop"/>
@@ -6495,6 +6622,8 @@
     </declare-styleable>
     <declare-styleable name="NavDeepLink">
         <attr format="string" name="uri"/>
+        <attr format="string" name="action"/>
+        <attr format="string" name="mimeType"/>
         <attr name="android:autoVerify"/>
     </declare-styleable>
     <declare-styleable name="NavGraphNavigator">
@@ -6688,6 +6817,25 @@
       <enum name="cut" value="1"/>
     </attr>
   </declare-styleable>
+    <declare-styleable name="SignInButton"><attr format="reference" name="buttonSize">
+<enum name="standard" value="0"/>
+
+<enum name="wide" value="1"/>
+
+<enum name="icon_only" value="2"/>
+
+</attr>
+<attr format="reference" name="colorScheme">
+<enum name="dark" value="0"/>
+
+<enum name="light" value="1"/>
+
+<enum name="auto" value="2"/>
+
+</attr>
+
+<attr format="reference|string" name="scopeUris"/>
+</declare-styleable>
     <declare-styleable name="Snackbar">
     <!-- Style to use for Snackbars in this theme. -->
     <attr format="reference" name="snackbarStyle"/>

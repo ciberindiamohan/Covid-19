@@ -7,6 +7,12 @@
         <variable
             name="RegisterViewModel"
             type="com.mohann.covid19.loginandregistration.RegisterViewModel" />
+
+        <variable
+            name="mRegistrationActivity"
+            type="com.mohann.covid19.loginandregistration.RegistrationActivity" />
+
+
     </data>
 
 
@@ -222,7 +228,7 @@
             android:layout_marginEnd="@dimen/hso_32dp"
             android:background="@drawable/rectangle_orange"
             android:fontFamily="sans-serif-medium"
-            android:onClick="@{(v) -> RegisterViewModel.onClick(v)}"
+            android:onClick="@{(view) -> mRegistrationActivity.onClick(view,RegisterViewModel)}"
             android:paddingStart="@dimen/hso_24dp"
             android:paddingTop="@dimen/hso_18dp"
             android:paddingEnd="@dimen/hso_24dp"

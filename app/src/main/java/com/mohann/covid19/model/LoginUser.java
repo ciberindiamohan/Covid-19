@@ -19,12 +19,12 @@ public class LoginUser {
         return strPassword;
     }
 
-    public boolean isEmailValid() {
-        return Patterns.EMAIL_ADDRESS.matcher(getStrEmailAddress()).matches();
+    public static boolean isEmailValid(String eMail) {
+        return Patterns.EMAIL_ADDRESS.matcher(eMail).matches();
     }
 
 
-    public boolean isPasswordLengthGreaterThan8() {
-        return getStrPassword().length() > 7 && getStrPassword().length() < 16;
+    public static boolean isPasswordLengthGreaterThan8(String password) {
+        return password.length() > 7 && password.length() < 16;
     }
 }

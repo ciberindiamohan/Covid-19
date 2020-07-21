@@ -16,6 +16,7 @@ import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.mohann.covid19.R;
+import com.mohann.covid19.loginandregistration.LoginActivity;
 import com.mohann.covid19.loginandregistration.LoginViewModel;
 import java.lang.Deprecated;
 import java.lang.Object;
@@ -77,6 +78,9 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
   @Bindable
   protected LoginViewModel mLoginViewModel;
 
+  @Bindable
+  protected LoginActivity mMLoginActivity;
+
   protected ActivityLoginBinding(Object _bindingComponent, View _root, int _localFieldCount,
       Button btnLogin, ConstraintLayout clLogin, Guideline guideLine, Guideline guideLineOne,
       Guideline guideLineTwo, ImageView lblTitle, TextView tvRegister, EditText txtEmailAddress,
@@ -98,6 +102,13 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
   @Nullable
   public LoginViewModel getLoginViewModel() {
     return mLoginViewModel;
+  }
+
+  public abstract void setMLoginActivity(@Nullable LoginActivity mLoginActivity);
+
+  @Nullable
+  public LoginActivity getMLoginActivity() {
+    return mMLoginActivity;
   }
 
   @NonNull

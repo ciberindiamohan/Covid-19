@@ -13,6 +13,7 @@ import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.gms.maps.MapView;
 import com.mohann.covid19.R;
 import com.mohann.covid19.bottomnavigation.ui.home.HomeDataModel;
 import com.mohann.covid19.bottomnavigation.ui.home.StateListAdapter;
@@ -31,6 +32,9 @@ public abstract class FragmentHomeBinding extends ViewDataBinding {
 
   @NonNull
   public final ProgressBar ivProgressViewCentre;
+
+  @NonNull
+  public final MapView mapView;
 
   @NonNull
   public final RecyclerView rvState;
@@ -103,7 +107,7 @@ public abstract class FragmentHomeBinding extends ViewDataBinding {
 
   protected FragmentHomeBinding(Object _bindingComponent, View _root, int _localFieldCount,
       ConstraintLayout clFragmentHome, ConstraintLayout clHeader, ConstraintLayout clHeaderState,
-      ProgressBar ivProgressViewCentre, RecyclerView rvState, TextView tvActive,
+      ProgressBar ivProgressViewCentre, MapView mapView, RecyclerView rvState, TextView tvActive,
       TextView tvActiveHeader, TextView tvActiveValue, TextView tvConfirmed,
       TextView tvConfirmedHeader, TextView tvConfirmedValue, TextView tvDate, TextView tvDeceased,
       TextView tvDeceasedHeader, TextView tvDeceasedValue, TextView tvDummyFive,
@@ -115,6 +119,7 @@ public abstract class FragmentHomeBinding extends ViewDataBinding {
     this.clHeader = clHeader;
     this.clHeaderState = clHeaderState;
     this.ivProgressViewCentre = ivProgressViewCentre;
+    this.mapView = mapView;
     this.rvState = rvState;
     this.tvActive = tvActive;
     this.tvActiveHeader = tvActiveHeader;

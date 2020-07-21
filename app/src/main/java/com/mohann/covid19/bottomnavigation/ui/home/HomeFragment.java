@@ -1,9 +1,11 @@
 package com.mohann.covid19.bottomnavigation.ui.home;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +20,20 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 import com.mohann.covid19.R;
 import com.mohann.covid19.databinding.FragmentHomeBinding;
 import com.mohann.covid19.district.DistrictActivity;
+import com.mohann.covid19.model.TravelHistory;
 import com.mohann.covid19.room.model.DistrictWiseModel;
 import com.mohann.covid19.room.model.StateWiseModel;
 import com.mohann.covid19.utils.Constants;
@@ -38,6 +50,9 @@ import java.util.TimeZone;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class HomeFragment extends Fragment {
@@ -50,12 +65,13 @@ public class HomeFragment extends Fragment {
     private ConstraintLayout clFragmentHome;
     private final CompositeDisposable mDisposable = new CompositeDisposable();
 
+    MapView mMapView;
+    private GoogleMap googleMap;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        homeViewModel = new
-                ViewModelProvider(this).get(HomeViewModel.class);
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -75,6 +91,73 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         iv_progress_view_centre = requireActivity().findViewById(R.id.iv_progress_view_centre);
+
+        mMapView = (MapView) requireActivity().findViewById(R.id.mapView);
+        mMapView.onCreate(savedInstanceState);
+        mMapView.onResume(); // needed to get the map to display immediately
+
+        try {
+            MapsInitializer.initialize(getActivity().getApplicationContext());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mMapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap mMap) {
+                googleMap = mMap;
+
+                if (getActivity() != null) {
+                    if (isConnected(getActivity())) {
+                        mDisposable.add(homeViewModel.deleteStateListData()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(() -> {
+                            homeViewModel.init();
+                            homeViewModel.getTravelHistory().observe(getViewLifecycleOwner(), travelHistoryResponse -> {
+                                List<TravelHistory> travelHistoryModels = new ArrayList<>();
+                                for (int i = 0; i < travelHistoryResponse.travel_history.size(); i++) {
+                                    /*
+                                    stateWiseModels.add(new StateWiseModel(
+                                        covidResponse.getStatewise().get(i).getActive(), covidResponse.getStatewise().get(i).getConfirmed(),
+                                        covidResponse.getStatewise().get(i).getDeaths(), covidResponse.getStatewise().get(i).getDeltaconfirmed(),
+                                        covidResponse.getStatewise().get(i).getDeltadeaths(), covidResponse.getStatewise().get(i).getDeltarecovered(),
+                                        covidResponse.getStatewise().get(i).getLastupdatedtime(), covidResponse.getStatewise().get(i).getMigratedother(),
+                                        covidResponse.getStatewise().get(i).getRecovered(), covidResponse.getStatewise().get(i).getState(),
+                                        covidResponse.getStatewise().get(i).getStatecode(), covidResponse.getStatewise().get(i).getStatenotes()));
+                                     */
+
+                                    String latlog = travelHistoryResponse.travel_history.get(i).latlong;
+                                    if(latlog.length()!=0) {
+                                        String[] parts = latlog.split(",");
+                                        Double lat = Double.parseDouble(parts[0]);
+                                        Double log = Double.parseDouble(parts[1]);
+
+                                        // For showing a move to my location button
+                                        // mMap.setMyLocationEnabled(true);
+
+                                        // Add a marker
+                                        LatLng india = new LatLng(lat,log);
+                                        String address = travelHistoryResponse.travel_history.get(i).address;
+                                        if(address.length()!=0) {
+                                            mMap.addMarker(new MarkerOptions().position(india).title("Case found").snippet(address));
+                                        }
+                                        mMap.moveCamera(CameraUpdateFactory.newLatLng(india));
+                                        mMap.animateCamera(CameraUpdateFactory.newLatLng(india));
+                                        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                                        mMap.getUiSettings().setZoomGesturesEnabled(true);
+                                        mMap.getUiSettings().setScrollGesturesEnabled(true);
+                                        mMap.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(true);
+                                        mMap.getUiSettings().setZoomControlsEnabled(true);
+                                    }
+                                }
+                            });
+                        }));
+                    }
+                }
+            }
+        });
+
         rvState = requireActivity().findViewById(R.id.rvState);
         clFragmentHome = requireActivity().findViewById(R.id.clFragmentHome);
         if (getActivity() != null) {
@@ -159,7 +242,6 @@ public class HomeFragment extends Fragment {
 
     }
 
-
     private void retrieveListData() {
         mDisposable.add(homeViewModel.getStateWiseModels()
                 .subscribeOn(Schedulers.io())
@@ -227,5 +309,7 @@ public class HomeFragment extends Fragment {
         assert connectivityManager != null;
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
+
+
 
 }

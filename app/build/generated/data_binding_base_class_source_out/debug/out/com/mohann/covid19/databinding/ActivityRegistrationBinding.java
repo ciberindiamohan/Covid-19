@@ -15,6 +15,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.mohann.covid19.R;
 import com.mohann.covid19.loginandregistration.RegisterViewModel;
+import com.mohann.covid19.loginandregistration.RegistrationActivity;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -81,6 +82,9 @@ public abstract class ActivityRegistrationBinding extends ViewDataBinding {
   @Bindable
   protected RegisterViewModel mRegisterViewModel;
 
+  @Bindable
+  protected RegistrationActivity mMRegistrationActivity;
+
   protected ActivityRegistrationBinding(Object _bindingComponent, View _root, int _localFieldCount,
       Button btnLogin, ConstraintLayout clRegister, Guideline guideLine, Guideline guideLineOne,
       Guideline guideLineTwo, EditText txtConfirmPassword, EditText txtEmailAddress,
@@ -104,6 +108,14 @@ public abstract class ActivityRegistrationBinding extends ViewDataBinding {
   @Nullable
   public RegisterViewModel getRegisterViewModel() {
     return mRegisterViewModel;
+  }
+
+  public abstract void setMRegistrationActivity(
+      @Nullable RegistrationActivity mRegistrationActivity);
+
+  @Nullable
+  public RegistrationActivity getMRegistrationActivity() {
+    return mMRegistrationActivity;
   }
 
   @NonNull

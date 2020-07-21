@@ -20,10 +20,6 @@
         "source": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\src\\main\\res\\layout\\fragment_home.xml"
     },
     {
-        "merged": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_who.xml",
-        "source": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\src\\main\\res\\layout\\fragment_who.xml"
-    },
-    {
         "merged": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_registration.xml",
         "source": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\src\\main\\res\\layout\\activity_registration.xml"
     }

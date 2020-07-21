@@ -128,7 +128,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="@={mDistrictViewModel.confirmed}"
                             android:textColor="@color/confirmed"
-                            android:textSize="@dimen/hso_20sp"
+                            android:textSize="@dimen/hso_18sp"
                             app:layout_constraintEnd_toEndOf="@+id/tvConfirmed"
                             app:layout_constraintHorizontal_chainStyle="spread"
                             app:layout_constraintStart_toStartOf="@id/tvConfirmed"
@@ -142,7 +142,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="@={mDistrictViewModel.active}"
                             android:textColor="@color/active"
-                            android:textSize="@dimen/hso_20sp"
+                            android:textSize="@dimen/hso_18sp"
                             app:layout_constraintEnd_toEndOf="@+id/tvActive"
                             app:layout_constraintStart_toStartOf="@id/tvActive"
                             app:layout_constraintTop_toBottomOf="@id/tvActive" />
@@ -155,7 +155,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="@={mDistrictViewModel.recovered}"
                             android:textColor="@color/recovered"
-                            android:textSize="@dimen/hso_20sp"
+                            android:textSize="@dimen/hso_18sp"
                             app:layout_constraintEnd_toEndOf="@+id/tvRecovered"
                             app:layout_constraintStart_toStartOf="@id/tvRecovered"
                             app:layout_constraintTop_toBottomOf="@id/tvRecovered" />
@@ -168,7 +168,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="@={mDistrictViewModel.deaths}"
                             android:textColor="@color/deceased"
-                            android:textSize="@dimen/hso_20sp"
+                            android:textSize="@dimen/hso_18sp"
                             app:layout_constraintEnd_toEndOf="@+id/tvDeceased"
                             app:layout_constraintStart_toStartOf="@id/tvDeceased"
                             app:layout_constraintTop_toBottomOf="@id/tvDeceased" />

@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.mohann.covid19.model.CovidModelResponse;
 import com.mohann.covid19.model.DistrictData;
 import com.mohann.covid19.model.DistrictWiseDataModel;
+import com.mohann.covid19.model.TravelHistory;
 import com.mohann.covid19.webservicehandler.CovidApi;
 import com.mohann.covid19.webservicehandler.CovidRetrofitService;
 
@@ -64,6 +65,27 @@ public class HomeRepository {
         return covidData;
     }
 
+    public MutableLiveData<TravelHistory> getTravelHistoryResult() {
+        MutableLiveData<TravelHistory> travelHistoryMutableLiveData = new MutableLiveData<>();
+        covidApi.getTravelHistory().enqueue(new Callback<TravelHistory>() {
+            @Override
+            public void onResponse(@NotNull Call<TravelHistory> call, @NotNull Response<TravelHistory> response) {
+                if (response.isSuccessful()) {
+                    TravelHistory travelHistoryModelResponse = response.body();
+                    if (travelHistoryModelResponse != null) {
+                        travelHistoryMutableLiveData.setValue(travelHistoryModelResponse);
+                    } else {
+                        travelHistoryMutableLiveData.setValue(null);
+                    }
+                }
+            }
+            @Override
+            public void onFailure(@NotNull Call<TravelHistory> call, @NotNull Throwable t) {
+                travelHistoryMutableLiveData.setValue(null);
+            }
+        });
+        return travelHistoryMutableLiveData;
+    }
 
     public MutableLiveData<List<DistrictWiseDataModel>> getStateWiseCovidResults() {
         MutableLiveData<List<DistrictWiseDataModel>> stateWiseModelList = new MutableLiveData<>();

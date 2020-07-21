@@ -11,6 +11,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -22,11 +28,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name="com.mohann.covid19.who.WhoActivity"
-            android:screenOrientation="fullUser"
-            android:theme="@style/AppTheme" />
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity
             android:name="com.mohann.covid19.district.DistrictActivity"
             android:screenOrientation="fullUser"
@@ -34,7 +41,8 @@
         <activity
             android:name="com.mohann.covid19.bottomnavigation.DashboardActivity"
             android:screenOrientation="fullUser"
-            android:theme="@style/DashboardTheme" />
+            android:theme="@style/DashboardTheme"
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name="com.mohann.covid19.loginandregistration.RegistrationActivity"
             android:screenOrientation="fullUser" />
@@ -54,13 +62,25 @@
         <service
             android:name="androidx.room.MultiInstanceInvalidationService"
             android:directBootAware="true"
-            android:exported="false" />
+            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
             android:authorities="com.mohann.covid19.lifecycle-process"
             android:exported="false"
             android:multiprocess="true" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

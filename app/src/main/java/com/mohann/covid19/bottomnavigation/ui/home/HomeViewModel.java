@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.mohann.covid19.model.CovidModelResponse;
 import com.mohann.covid19.model.DistrictWiseDataModel;
+import com.mohann.covid19.model.TravelHistory;
 import com.mohann.covid19.room.CovidDatabase;
 import com.mohann.covid19.room.model.DistrictWiseModel;
 import com.mohann.covid19.room.model.StateWiseModel;
@@ -21,6 +22,7 @@ import io.reactivex.Maybe;
 public class HomeViewModel extends AndroidViewModel {
 
     public MutableLiveData<CovidModelResponse> covidModelResponseMutableLiveData;
+    public MutableLiveData<TravelHistory> travelHistoryMutableLiveData;
     public MutableLiveData<List<DistrictWiseDataModel>> covidStateWiseModelResponseMutableLiveData;
     public MutableLiveData<HomeDataModel> homeDataModelMutableLiveData = new MutableLiveData<>();
     private CovidDatabase covidDatabase;
@@ -41,13 +43,21 @@ public class HomeViewModel extends AndroidViewModel {
         if (covidStateWiseModelResponseMutableLiveData != null) {
             return;
         }
+        if(travelHistoryMutableLiveData != null){
+            return;
+        }
         HomeRepository homeRepository = HomeRepository.getInstance();
         covidModelResponseMutableLiveData = homeRepository.getCovidResults();
+        travelHistoryMutableLiveData = homeRepository.getTravelHistoryResult();
         covidStateWiseModelResponseMutableLiveData = homeRepository.getStateWiseCovidResults();
     }
 
     public LiveData<CovidModelResponse> getHomeRepository() {
         return covidModelResponseMutableLiveData;
+    }
+
+    public LiveData<TravelHistory> getTravelHistory() {
+        return travelHistoryMutableLiveData;
     }
 
     public LiveData<List<DistrictWiseDataModel>> getStateWiseCovidResults() {
@@ -66,7 +76,6 @@ public class HomeViewModel extends AndroidViewModel {
     Completable deleteStateListData() {
         return covidDatabase.covidDao().deleteStateWiseData();
     }
-
 
     //District Wise data
     Completable saveDistrictListData(List<DistrictWiseModel> districtWiseModels) {

@@ -27,9 +27,9 @@
     <string name="user_already_registered">User is already registered. Kindly login to proceed.</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
-    <string name="title_home">India</string>
-    <string name="title_dashboard">WHO</string>
-    <string name="title_notifications">Resources</string>
+    <string name="title_india">India</string>
+    <string name="title_who">WHO</string>
+    <string name="title_resources">Resources</string>
     <string name="deceased">Deceased</string>
     <string name="recovered">Recovered</string>
     <string name="active">Active</string>
@@ -51,9 +51,6 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="district">District</string>
-    <string name="who_int"><u>https://covid19.who.int/</u></string>
-    <string name="who_rss"><u>https://www.who.int/feeds/entity/</u></string>
-    <string name="link_1">Link 1</string>
-    <string name="link_2">Link 2</string>
+    <string name="profile">Profile</string>
 
 </resources>

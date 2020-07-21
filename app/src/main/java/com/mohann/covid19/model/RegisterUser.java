@@ -13,7 +13,7 @@ public class RegisterUser {
     private String strConfirmPassword;
     private String strPhoneNumber;
 
-    public RegisterUser(String strFirstName, String strLastName, String strPassword, String strConfirmPassword,String strEmailAddress, String strPhoneNumber) {
+    public RegisterUser(String strFirstName, String strLastName, String strPassword, String strConfirmPassword, String strEmailAddress, String strPhoneNumber) {
         this.strFirstName = strFirstName;
         this.strLastName = strLastName;
         this.strPassword = strPassword;
@@ -70,33 +70,32 @@ public class RegisterUser {
         this.strPhoneNumber = strPhoneNumber;
     }
 
-    public boolean isEmailValid() {
-        return Patterns.EMAIL_ADDRESS.matcher(getStrEmailAddress()).matches();
+    public static boolean isEmailValid(String eMail) {
+        return Patterns.EMAIL_ADDRESS.matcher(eMail).matches();
     }
 
-    public boolean isValidPassword() {
+    public static boolean isValidPassword(String password) {
         Pattern pattern;
         Matcher matcher;
         final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
         pattern = Pattern.compile(PASSWORD_PATTERN);
-        matcher = pattern.matcher(getStrPassword());
+        matcher = pattern.matcher(password);
         return matcher.matches();
     }
 
-    public boolean isValidCheckPassword() {
-        return getStrPassword().equals(getStrConfirmPassword());
+    public static boolean isValidCheckPassword(String password, String confirmPassword) {
+        return password.equals(confirmPassword);
     }
 
-    public boolean isPasswordLengthGreaterThan8() {
-        return getStrPassword().length() > 7 && getStrPassword().length() < 16;
+    public static boolean isPasswordLengthGreaterThan8(String password) {
+        return password.length() > 7 && password.length() < 16;
     }
 
-    public boolean isValidPhoneNumber() {
-        CharSequence target = getStrPhoneNumber();
-        if (target == null || target.length() < 10 || target.length() > 13) {
+    public static boolean isValidPhoneNumber(String text) {
+        if (text == null || ((CharSequence) text).length() < 10 || ((CharSequence) text).length() > 13) {
             return false;
         } else {
-            return android.util.Patterns.PHONE.matcher(target).matches();
+            return android.util.Patterns.PHONE.matcher(text).matches();
         }
     }
 }

@@ -4,10 +4,6 @@
         "source": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\src\\main\\res\\layout-land\\list_item_state_list.xml"
     },
     {
-        "merged": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout-land\\fragment_who.xml",
-        "source": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\src\\main\\res\\layout-land\\fragment_who.xml"
-    },
-    {
         "merged": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout-land\\activity_login.xml",
         "source": "C:\\mohan mobility\\Covid19 POC\\Git Source Code\\app\\src\\main\\res\\layout-land\\activity_login.xml"
     },

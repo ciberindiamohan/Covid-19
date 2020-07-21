@@ -3,7 +3,6 @@
                                                         
 
     
-
                  
                                  
                                                                                
@@ -17,7 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white" android:tag="layout/fragment_home_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-
 
         <ProgressBar
             android:id="@+id/iv_progress_view_centre"
@@ -374,10 +372,19 @@
                         android:paddingBottom="@dimen/hso_4dp"
                         android:scrollbars="none"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/mapView"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/clHeaderState" />
+
+                    <com.google.android.gms.maps.MapView
+                        android:id="@+id/mapView"
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rvState"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

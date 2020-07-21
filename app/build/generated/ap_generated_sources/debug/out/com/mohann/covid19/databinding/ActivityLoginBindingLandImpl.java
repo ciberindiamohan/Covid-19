@@ -23,10 +23,10 @@ public class ActivityLoginBindingLandImpl extends ActivityLoginBinding implement
     }
     // views
     @NonNull
-    private final android.widget.ScrollView mboundView0;
+    private final androidx.core.widget.NestedScrollView mboundView0;
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback5;
+    private final android.view.View.OnClickListener mCallback3;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -121,20 +121,20 @@ public class ActivityLoginBindingLandImpl extends ActivityLoginBinding implement
             , (android.widget.EditText) bindings[2]
             );
         this.btnLogin.setTag(null);
-        this.mboundView0 = (android.widget.ScrollView) bindings[0];
+        this.mboundView0 = (androidx.core.widget.NestedScrollView) bindings[0];
         this.mboundView0.setTag(null);
         this.txtEmailAddress.setTag(null);
         this.txtPassword.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback5 = new com.mohann.covid19.generated.callback.OnClickListener(this, 1);
+        mCallback3 = new com.mohann.covid19.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x8L;
+                mDirtyFlags = 0x10L;
         }
         requestRebind();
     }
@@ -155,6 +155,9 @@ public class ActivityLoginBindingLandImpl extends ActivityLoginBinding implement
         if (BR.LoginViewModel == variableId) {
             setLoginViewModel((com.mohann.covid19.loginandregistration.LoginViewModel) variable);
         }
+        else if (BR.mLoginActivity == variableId) {
+            setMLoginActivity((com.mohann.covid19.loginandregistration.LoginActivity) variable);
+        }
         else {
             variableSet = false;
         }
@@ -167,6 +170,14 @@ public class ActivityLoginBindingLandImpl extends ActivityLoginBinding implement
             mDirtyFlags |= 0x4L;
         }
         notifyPropertyChanged(BR.LoginViewModel);
+        super.requestRebind();
+    }
+    public void setMLoginActivity(@Nullable com.mohann.covid19.loginandregistration.LoginActivity MLoginActivity) {
+        this.mMLoginActivity = MLoginActivity;
+        synchronized(this) {
+            mDirtyFlags |= 0x8L;
+        }
+        notifyPropertyChanged(BR.mLoginActivity);
         super.requestRebind();
     }
 
@@ -210,12 +221,13 @@ public class ActivityLoginBindingLandImpl extends ActivityLoginBinding implement
         java.lang.String loginViewModelPasswordGetValue = null;
         java.lang.String loginViewModelEMailGetValue = null;
         androidx.lifecycle.MutableLiveData<java.lang.String> loginViewModelPassword = null;
+        com.mohann.covid19.loginandregistration.LoginActivity mLoginActivity = mMLoginActivity;
         androidx.lifecycle.MutableLiveData<java.lang.String> loginViewModelEMail = null;
 
-        if ((dirtyFlags & 0xfL) != 0) {
+        if ((dirtyFlags & 0x17L) != 0) {
 
 
-            if ((dirtyFlags & 0xdL) != 0) {
+            if ((dirtyFlags & 0x15L) != 0) {
 
                     if (loginViewModel != null) {
                         // read LoginViewModel.password
@@ -229,7 +241,7 @@ public class ActivityLoginBindingLandImpl extends ActivityLoginBinding implement
                         loginViewModelPasswordGetValue = loginViewModelPassword.getValue();
                     }
             }
-            if ((dirtyFlags & 0xeL) != 0) {
+            if ((dirtyFlags & 0x16L) != 0) {
 
                     if (loginViewModel != null) {
                         // read LoginViewModel.eMail
@@ -245,19 +257,19 @@ public class ActivityLoginBindingLandImpl extends ActivityLoginBinding implement
             }
         }
         // batch finished
-        if ((dirtyFlags & 0x8L) != 0) {
+        if ((dirtyFlags & 0x10L) != 0) {
             // api target 1
 
-            this.btnLogin.setOnClickListener(mCallback5);
+            this.btnLogin.setOnClickListener(mCallback3);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txtEmailAddress, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txtEmailAddressandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txtPassword, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txtPasswordandroidTextAttrChanged);
         }
-        if ((dirtyFlags & 0xeL) != 0) {
+        if ((dirtyFlags & 0x16L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtEmailAddress, loginViewModelEMailGetValue);
         }
-        if ((dirtyFlags & 0xdL) != 0) {
+        if ((dirtyFlags & 0x15L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtPassword, loginViewModelPasswordGetValue);
@@ -269,17 +281,20 @@ public class ActivityLoginBindingLandImpl extends ActivityLoginBinding implement
         // localize variables for thread safety
         // LoginViewModel
         com.mohann.covid19.loginandregistration.LoginViewModel loginViewModel = mLoginViewModel;
-        // LoginViewModel != null
-        boolean loginViewModelJavaLangObjectNull = false;
+        // mLoginActivity != null
+        boolean mLoginActivityJavaLangObjectNull = false;
+        // mLoginActivity
+        com.mohann.covid19.loginandregistration.LoginActivity mLoginActivity = mMLoginActivity;
 
 
 
-        loginViewModelJavaLangObjectNull = (loginViewModel) != (null);
-        if (loginViewModelJavaLangObjectNull) {
+        mLoginActivityJavaLangObjectNull = (mLoginActivity) != (null);
+        if (mLoginActivityJavaLangObjectNull) {
 
 
 
-            loginViewModel.onClick(callbackArg_0);
+
+            mLoginActivity.onClick(callbackArg_0, loginViewModel);
         }
     }
     // dirty flag
@@ -288,7 +303,8 @@ public class ActivityLoginBindingLandImpl extends ActivityLoginBinding implement
         flag 0 (0x1L): LoginViewModel.password
         flag 1 (0x2L): LoginViewModel.eMail
         flag 2 (0x3L): LoginViewModel
-        flag 3 (0x4L): null
+        flag 3 (0x4L): mLoginActivity
+        flag 4 (0x5L): null
     flag mapping end*/
     //end
 }

@@ -27,7 +27,7 @@ public final class CovidDatabase_Impl extends CovidDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(4) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(5) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `districtwise` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `stateName` TEXT, `stateCode` TEXT, `districtName` TEXT, `active` INTEGER NOT NULL, `confirmed` INTEGER NOT NULL, `deceased` INTEGER NOT NULL, `recovered` INTEGER NOT NULL, `deltaConfirmed` INTEGER NOT NULL, `deltaDeceased` INTEGER NOT NULL, `deltaRecovered` INTEGER NOT NULL)");

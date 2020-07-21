@@ -19,7 +19,7 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback4;
+    private final android.view.View.OnClickListener mCallback2;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -273,14 +273,14 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
         this.txtPhoneNo.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback4 = new com.mohann.covid19.generated.callback.OnClickListener(this, 1);
+        mCallback2 = new com.mohann.covid19.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x80L;
+                mDirtyFlags = 0x100L;
         }
         requestRebind();
     }
@@ -298,7 +298,10 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
     @Override
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
-        if (BR.RegisterViewModel == variableId) {
+        if (BR.mRegistrationActivity == variableId) {
+            setMRegistrationActivity((com.mohann.covid19.loginandregistration.RegistrationActivity) variable);
+        }
+        else if (BR.RegisterViewModel == variableId) {
             setRegisterViewModel((com.mohann.covid19.loginandregistration.RegisterViewModel) variable);
         }
         else {
@@ -307,10 +310,18 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
             return variableSet;
     }
 
+    public void setMRegistrationActivity(@Nullable com.mohann.covid19.loginandregistration.RegistrationActivity MRegistrationActivity) {
+        this.mMRegistrationActivity = MRegistrationActivity;
+        synchronized(this) {
+            mDirtyFlags |= 0x40L;
+        }
+        notifyPropertyChanged(BR.mRegistrationActivity);
+        super.requestRebind();
+    }
     public void setRegisterViewModel(@Nullable com.mohann.covid19.loginandregistration.RegisterViewModel RegisterViewModel) {
         this.mRegisterViewModel = RegisterViewModel;
         synchronized(this) {
-            mDirtyFlags |= 0x40L;
+            mDirtyFlags |= 0x80L;
         }
         notifyPropertyChanged(BR.RegisterViewModel);
         super.requestRebind();
@@ -403,6 +414,7 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
         java.lang.String registerViewModelLastNameGetValue = null;
         androidx.lifecycle.MutableLiveData<java.lang.String> registerViewModelFirstName = null;
         java.lang.String registerViewModelPhoneNoGetValue = null;
+        com.mohann.covid19.loginandregistration.RegistrationActivity mRegistrationActivity = mMRegistrationActivity;
         androidx.lifecycle.MutableLiveData<java.lang.String> registerViewModelEMail = null;
         androidx.lifecycle.MutableLiveData<java.lang.String> registerViewModelPhoneNo = null;
         androidx.lifecycle.MutableLiveData<java.lang.String> registerViewModelPassword = null;
@@ -410,10 +422,10 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
         java.lang.String registerViewModelFirstNameGetValue = null;
         com.mohann.covid19.loginandregistration.RegisterViewModel registerViewModel = mRegisterViewModel;
 
-        if ((dirtyFlags & 0xffL) != 0) {
+        if ((dirtyFlags & 0x1bfL) != 0) {
 
 
-            if ((dirtyFlags & 0xc1L) != 0) {
+            if ((dirtyFlags & 0x181L) != 0) {
 
                     if (registerViewModel != null) {
                         // read RegisterViewModel.lastName
@@ -427,7 +439,7 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
                         registerViewModelLastNameGetValue = registerViewModelLastName.getValue();
                     }
             }
-            if ((dirtyFlags & 0xc2L) != 0) {
+            if ((dirtyFlags & 0x182L) != 0) {
 
                     if (registerViewModel != null) {
                         // read RegisterViewModel.confirmPassword
@@ -441,7 +453,7 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
                         registerViewModelConfirmPasswordGetValue = registerViewModelConfirmPassword.getValue();
                     }
             }
-            if ((dirtyFlags & 0xc4L) != 0) {
+            if ((dirtyFlags & 0x184L) != 0) {
 
                     if (registerViewModel != null) {
                         // read RegisterViewModel.firstName
@@ -455,7 +467,7 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
                         registerViewModelFirstNameGetValue = registerViewModelFirstName.getValue();
                     }
             }
-            if ((dirtyFlags & 0xc8L) != 0) {
+            if ((dirtyFlags & 0x188L) != 0) {
 
                     if (registerViewModel != null) {
                         // read RegisterViewModel.eMail
@@ -469,7 +481,7 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
                         registerViewModelEMailGetValue = registerViewModelEMail.getValue();
                     }
             }
-            if ((dirtyFlags & 0xd0L) != 0) {
+            if ((dirtyFlags & 0x190L) != 0) {
 
                     if (registerViewModel != null) {
                         // read RegisterViewModel.phoneNo
@@ -483,7 +495,7 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
                         registerViewModelPhoneNoGetValue = registerViewModelPhoneNo.getValue();
                     }
             }
-            if ((dirtyFlags & 0xe0L) != 0) {
+            if ((dirtyFlags & 0x1a0L) != 0) {
 
                     if (registerViewModel != null) {
                         // read RegisterViewModel.password
@@ -499,10 +511,10 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
             }
         }
         // batch finished
-        if ((dirtyFlags & 0x80L) != 0) {
+        if ((dirtyFlags & 0x100L) != 0) {
             // api target 1
 
-            this.btnLogin.setOnClickListener(mCallback4);
+            this.btnLogin.setOnClickListener(mCallback2);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txtConfirmPassword, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txtConfirmPasswordandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txtEmailAddress, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txtEmailAddressandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txtFirstName, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txtFirstNameandroidTextAttrChanged);
@@ -510,32 +522,32 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txtPassword, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txtPasswordandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txtPhoneNo, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txtPhoneNoandroidTextAttrChanged);
         }
-        if ((dirtyFlags & 0xc2L) != 0) {
+        if ((dirtyFlags & 0x182L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtConfirmPassword, registerViewModelConfirmPasswordGetValue);
         }
-        if ((dirtyFlags & 0xc8L) != 0) {
+        if ((dirtyFlags & 0x188L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtEmailAddress, registerViewModelEMailGetValue);
         }
-        if ((dirtyFlags & 0xc4L) != 0) {
+        if ((dirtyFlags & 0x184L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtFirstName, registerViewModelFirstNameGetValue);
         }
-        if ((dirtyFlags & 0xc1L) != 0) {
+        if ((dirtyFlags & 0x181L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtLastName, registerViewModelLastNameGetValue);
         }
-        if ((dirtyFlags & 0xe0L) != 0) {
+        if ((dirtyFlags & 0x1a0L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtPassword, registerViewModelPasswordGetValue);
         }
-        if ((dirtyFlags & 0xd0L) != 0) {
+        if ((dirtyFlags & 0x190L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtPhoneNo, registerViewModelPhoneNoGetValue);
@@ -545,19 +557,22 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         // localize variables for thread safety
-        // RegisterViewModel != null
-        boolean registerViewModelJavaLangObjectNull = false;
+        // mRegistrationActivity != null
+        boolean mRegistrationActivityJavaLangObjectNull = false;
         // RegisterViewModel
         com.mohann.covid19.loginandregistration.RegisterViewModel registerViewModel = mRegisterViewModel;
+        // mRegistrationActivity
+        com.mohann.covid19.loginandregistration.RegistrationActivity mRegistrationActivity = mMRegistrationActivity;
 
 
 
-        registerViewModelJavaLangObjectNull = (registerViewModel) != (null);
-        if (registerViewModelJavaLangObjectNull) {
+        mRegistrationActivityJavaLangObjectNull = (mRegistrationActivity) != (null);
+        if (mRegistrationActivityJavaLangObjectNull) {
 
 
 
-            registerViewModel.onClick(callbackArg_0);
+
+            mRegistrationActivity.onClick(callbackArg_0, registerViewModel);
         }
     }
     // dirty flag
@@ -569,8 +584,9 @@ public class ActivityRegistrationBindingImpl extends ActivityRegistrationBinding
         flag 3 (0x4L): RegisterViewModel.eMail
         flag 4 (0x5L): RegisterViewModel.phoneNo
         flag 5 (0x6L): RegisterViewModel.password
-        flag 6 (0x7L): RegisterViewModel
-        flag 7 (0x8L): null
+        flag 6 (0x7L): mRegistrationActivity
+        flag 7 (0x8L): RegisterViewModel
+        flag 8 (0x9L): null
     flag mapping end*/
     //end
 }

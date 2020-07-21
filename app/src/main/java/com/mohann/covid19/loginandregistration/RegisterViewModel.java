@@ -14,7 +14,6 @@ import com.mohann.covid19.room.model.RegisterUserModel;
 import java.util.List;
 
 import io.reactivex.Completable;
-import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 
 public class RegisterViewModel extends AndroidViewModel {
@@ -47,14 +46,6 @@ public class RegisterViewModel extends AndroidViewModel {
                 password.getValue(), confirmPassword.getValue(), eMail.getValue(), phoneNo.getValue());
         userMutableLiveData.setValue(registerUser);
     }
-
-//    Boolean registerUser(RegisterUserModel registerUserModel) {
-//        return covidRepository.registerUser(registerUserModel);
-//    }
-//
-//    RegisterUserModel getSpecifiedUser(String emailID) {
-//        return covidRepository.getSpecifiedUser(emailID);
-//    }
 
     Completable registerUser(RegisterUserModel registerUserModel) {
         return covidDatabase.covidDao().registerUser(registerUserModel);

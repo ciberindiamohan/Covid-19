@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="mHomeDataModel"
             type="com.mohann.covid19.bottomnavigation.ui.home.HomeDataModel" />
@@ -17,7 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
-
 
         <ProgressBar
             android:id="@+id/iv_progress_view_centre"
@@ -135,7 +133,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="@={mHomeDataModel.confirmed}"
                             android:textColor="@color/confirmed"
-                            android:textSize="@dimen/hso_20sp"
+                            android:textSize="@dimen/hso_18sp"
                             app:layout_constraintEnd_toEndOf="@+id/tvConfirmed"
                             app:layout_constraintHorizontal_chainStyle="spread"
                             app:layout_constraintStart_toStartOf="@id/tvConfirmed"
@@ -149,7 +147,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="@={mHomeDataModel.active}"
                             android:textColor="@color/active"
-                            android:textSize="@dimen/hso_20sp"
+                            android:textSize="@dimen/hso_18sp"
                             app:layout_constraintEnd_toEndOf="@+id/tvActive"
                             app:layout_constraintStart_toStartOf="@id/tvActive"
                             app:layout_constraintTop_toBottomOf="@id/tvActive" />
@@ -162,7 +160,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="@={mHomeDataModel.recovered}"
                             android:textColor="@color/recovered"
-                            android:textSize="@dimen/hso_20sp"
+                            android:textSize="@dimen/hso_18sp"
                             app:layout_constraintEnd_toEndOf="@+id/tvRecovered"
                             app:layout_constraintStart_toStartOf="@id/tvRecovered"
                             app:layout_constraintTop_toBottomOf="@id/tvRecovered" />
@@ -175,7 +173,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="@={mHomeDataModel.deceased}"
                             android:textColor="@color/deceased"
-                            android:textSize="@dimen/hso_20sp"
+                            android:textSize="@dimen/hso_18sp"
                             app:layout_constraintEnd_toEndOf="@+id/tvDeceased"
                             app:layout_constraintStart_toStartOf="@id/tvDeceased"
                             app:layout_constraintTop_toBottomOf="@id/tvDeceased" />
@@ -374,10 +372,19 @@
                         android:paddingBottom="@dimen/hso_4dp"
                         android:scrollbars="none"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/mapView"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/clHeaderState" />
+
+                    <com.google.android.gms.maps.MapView
+                        android:id="@+id/mapView"
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rvState"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

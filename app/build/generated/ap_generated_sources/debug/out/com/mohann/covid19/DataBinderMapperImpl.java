@@ -14,8 +14,6 @@ import com.mohann.covid19.databinding.ActivityRegistrationBindingImpl;
 import com.mohann.covid19.databinding.ActivityRegistrationBindingLandImpl;
 import com.mohann.covid19.databinding.FragmentHomeBindingImpl;
 import com.mohann.covid19.databinding.FragmentHomeBindingLandImpl;
-import com.mohann.covid19.databinding.FragmentWhoBindingImpl;
-import com.mohann.covid19.databinding.FragmentWhoBindingLandImpl;
 import com.mohann.covid19.databinding.ListItemDistrictListBindingImpl;
 import com.mohann.covid19.databinding.ListItemDistrictListBindingLandImpl;
 import com.mohann.covid19.databinding.ListItemStateListBindingImpl;
@@ -39,20 +37,17 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_FRAGMENTHOME = 4;
 
-  private static final int LAYOUT_FRAGMENTWHO = 5;
+  private static final int LAYOUT_LISTITEMDISTRICTLIST = 5;
 
-  private static final int LAYOUT_LISTITEMDISTRICTLIST = 6;
+  private static final int LAYOUT_LISTITEMSTATELIST = 6;
 
-  private static final int LAYOUT_LISTITEMSTATELIST = 7;
-
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(7);
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(6);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.mohann.covid19.R.layout.activity_district, LAYOUT_ACTIVITYDISTRICT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.mohann.covid19.R.layout.activity_login, LAYOUT_ACTIVITYLOGIN);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.mohann.covid19.R.layout.activity_registration, LAYOUT_ACTIVITYREGISTRATION);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.mohann.covid19.R.layout.fragment_home, LAYOUT_FRAGMENTHOME);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.mohann.covid19.R.layout.fragment_who, LAYOUT_FRAGMENTWHO);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.mohann.covid19.R.layout.list_item_district_list, LAYOUT_LISTITEMDISTRICTLIST);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.mohann.covid19.R.layout.list_item_state_list, LAYOUT_LISTITEMSTATELIST);
   }
@@ -101,15 +96,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new FragmentHomeBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for fragment_home is invalid. Received: " + tag);
-        }
-        case  LAYOUT_FRAGMENTWHO: {
-          if ("layout/fragment_who_0".equals(tag)) {
-            return new FragmentWhoBindingImpl(component, view);
-          }
-          if ("layout-land/fragment_who_0".equals(tag)) {
-            return new FragmentWhoBindingLandImpl(component, view);
-          }
-          throw new IllegalArgumentException("The tag for fragment_who is invalid. Received: " + tag);
         }
         case  LAYOUT_LISTITEMDISTRICTLIST: {
           if ("layout-land/list_item_district_list_0".equals(tag)) {
@@ -174,7 +160,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(10);
+    static final SparseArray<String> sKeys = new SparseArray<String>(11);
 
     static {
       sKeys.put(1, "LoginViewModel");
@@ -184,14 +170,15 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put(4, "mDistrictViewModel");
       sKeys.put(5, "mDistrictWise");
       sKeys.put(6, "mHomeDataModel");
-      sKeys.put(7, "mStateListAdapter");
-      sKeys.put(8, "mStateWise");
-      sKeys.put(9, "mWhoViewModel");
+      sKeys.put(7, "mLoginActivity");
+      sKeys.put(8, "mRegistrationActivity");
+      sKeys.put(9, "mStateListAdapter");
+      sKeys.put(10, "mStateWise");
     }
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(14);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(12);
 
     static {
       sKeys.put("layout-land/activity_district_0", com.mohann.covid19.R.layout.activity_district);
@@ -202,8 +189,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put("layout/activity_registration_0", com.mohann.covid19.R.layout.activity_registration);
       sKeys.put("layout-land/fragment_home_0", com.mohann.covid19.R.layout.fragment_home);
       sKeys.put("layout/fragment_home_0", com.mohann.covid19.R.layout.fragment_home);
-      sKeys.put("layout/fragment_who_0", com.mohann.covid19.R.layout.fragment_who);
-      sKeys.put("layout-land/fragment_who_0", com.mohann.covid19.R.layout.fragment_who);
       sKeys.put("layout-land/list_item_district_list_0", com.mohann.covid19.R.layout.list_item_district_list);
       sKeys.put("layout/list_item_district_list_0", com.mohann.covid19.R.layout.list_item_district_list);
       sKeys.put("layout/list_item_state_list_0", com.mohann.covid19.R.layout.list_item_state_list);

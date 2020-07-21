@@ -1,6 +1,7 @@
 package com.mohann.covid19.webservicehandler;
 
 import com.mohann.covid19.model.CovidModelResponse;
+import com.mohann.covid19.model.TravelHistory;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -12,6 +13,11 @@ public interface CovidApi {
 
     @GET("state_district_wise.json")
     Call<ResponseBody> getStateWiseCovidData();
+
+    @GET("travel_history.json")
+    Call<TravelHistory> getTravelHistory();
+
+
 }
 
 

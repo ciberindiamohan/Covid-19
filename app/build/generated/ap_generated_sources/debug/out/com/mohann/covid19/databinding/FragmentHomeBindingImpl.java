@@ -33,6 +33,7 @@ public class FragmentHomeBindingImpl extends FragmentHomeBinding  {
         sViewsWithIds.put(R.id.tvDummyFive, 23);
         sViewsWithIds.put(R.id.tvDeceasedHeader, 24);
         sViewsWithIds.put(R.id.tvDummySix, 25);
+        sViewsWithIds.put(R.id.mapView, 26);
     }
     // views
     @NonNull
@@ -173,7 +174,7 @@ public class FragmentHomeBindingImpl extends FragmentHomeBinding  {
     };
 
     public FragmentHomeBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 26, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 27, sIncludes, sViewsWithIds));
     }
     private FragmentHomeBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
@@ -181,6 +182,7 @@ public class FragmentHomeBindingImpl extends FragmentHomeBinding  {
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[9]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[14]
             , (android.widget.ProgressBar) bindings[7]
+            , (com.google.android.gms.maps.MapView) bindings[26]
             , (androidx.recyclerview.widget.RecyclerView) bindings[6]
             , (android.widget.TextView) bindings[11]
             , (android.widget.TextView) bindings[20]

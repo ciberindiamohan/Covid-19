@@ -7,6 +7,12 @@
                  
                                     
                                                                                
+
+                 
+                                        
+                                                                                  
+
+
            
 
 
@@ -248,7 +254,7 @@
                 android:layout_marginBottom="@dimen/hso_32dp"
                 android:background="@drawable/rectangle_orange"
                 android:fontFamily="sans-serif-medium"
-                android:tag="binding_7"                                 
+                android:tag="binding_7"                                                             
                 android:paddingStart="@dimen/hso_24dp"
                 android:paddingTop="@dimen/hso_18dp"
                 android:paddingEnd="@dimen/hso_24dp"

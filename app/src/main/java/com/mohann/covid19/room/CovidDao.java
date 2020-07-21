@@ -42,4 +42,6 @@ public interface CovidDao {
     @Query("DELETE FROM districtwise ")
     Completable deleteDistrictWiseData();
 
+
+
 }
